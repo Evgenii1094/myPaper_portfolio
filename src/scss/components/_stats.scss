@@ -1,0 +1,35 @@
+.stats {
+    &__wrapper {
+        display: grid;
+        gap: 0 20px;
+        grid-template-columns: repeat(4, 335px);
+        justify-content: center;
+
+        @include desktop {
+            grid-template-columns: repeat(4, 265px);
+        }
+
+        @include tablet {
+            gap: 20px;
+            grid-template-columns: repeat(2, 335px);
+        }
+
+        @include mobile {
+            grid-template-columns: repeat(1, 320px);
+        }
+    }
+
+    &__item {
+        @include flex-v-center;
+        background-color: var(--color-secondary-bg);
+        border-radius: 12px;
+        flex-direction: column;
+        gap: 8px 0;
+        padding: 40px;
+    }
+
+    &__num {
+        @include font(var(--typo-1), 48px, var(--fw-bold));
+        color: var(--color-secondary-d);
+    }
+}

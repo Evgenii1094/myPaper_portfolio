@@ -1,0 +1,44 @@
+.about-join {
+    .title {
+        text-align: left;
+
+        @include mobile {
+            text-align: center;
+        }
+    }
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 480px);
+        gap: 0 270px;
+        justify-content: center;
+
+        @include desktop {
+            gap: 0 160px;
+        }
+
+        @include tablet {
+            grid-template-columns: repeat(2, 334px);
+            gap: 0 20px;
+        }
+
+        @include mobile {
+            @include flex-all-center;
+            flex-direction: column-reverse;
+            grid-template-columns: auto;
+            gap: 20px 0;
+        }
+    }
+
+    &__content {
+        @include mobile {
+            text-align: center;
+        }
+    }
+
+    .btn {
+        @include sm-mobile {
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,47 @@
+.about-team {
+    .title {
+        @include tablet {
+            margin: 0 auto 60px;
+            max-width: 570px;
+        }
+
+        @include mobile {
+            margin-bottom: 40px;
+        }
+    }
+
+    &__wrapper {
+        display: grid;
+        gap: 60px;
+        grid-template-columns: repeat(3, 355px);
+        justify-content: center;
+
+        @include desktop {
+            gap: 60px 30px;
+        }
+
+        @include tablet {
+            gap: 60px 20px;
+            grid-template-columns: repeat(3, 216px);
+        }
+
+        @include mobile {
+            gap: 40px 20px;
+            grid-template-columns: repeat(auto-fill, 150px);
+        }
+    }
+
+    &__item {
+        @include flex-all-center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    &__picture {
+        margin-bottom: 30px;
+    }
+
+    &__title {
+        margin-bottom: 12px;
+    }
+}

@@ -1,0 +1,244 @@
+.header-nav {
+    $this: &;
+
+    @include tablet {
+        @include trs;
+        @include absolute(85px, null, null, 50%);
+        background-color: $color-white;
+        border: 1px solid var(--color-gray);
+        border-radius: 12px;
+        box-shadow: 4px 4px 20px 0px rgba(114, 114, 168, 0.10);
+        max-width: 930px;
+        padding: 40px;
+        transform: translateX(-50%);
+        width: 100%;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+
+        .is-open & {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &__list {
+        @include flex-all-center;
+        gap: 0 60px;
+
+        @include desktop {
+            gap: 0 40px;
+        }
+
+        @include mobile {
+            flex-direction: column;
+            gap: 40px 0;
+        }
+    }
+
+    &__item {
+        @include flex-all-center;
+        height: 70px;
+
+        @include tablet {
+            height: auto;
+        }
+
+        &.is-dropdown {
+            @include large {
+                @include on-event {
+                    #{$this}__dropdown {
+                        opacity: 1;
+                        visibility: visible;
+                    }
+    
+                    #{$this}__link {
+                        &::before {
+                            content: none;
+                        }
+                    }
+    
+                    #{$this}__icon {
+                        &::before {
+                            background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAxMyAxMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0yLjAyNjYxIDVMNi4wMjY2MSA5TDEwLjAyNjYgNSIgc3Ryb2tlPSIjMjQ1OEE0Ii8+Cjwvc3ZnPgo=");
+                            transform: translateY(-50%) rotate(-180deg);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &__link {
+        @include trs;
+        @include flex-v-center;
+        @include font(var(--typo-2), 16px, var(--fw-bold));
+        color: var(--color-dark-blue);
+        gap: 0 4px;
+        position: relative;
+        text-transform: capitalize;
+
+        &.is-active {
+            color: var(--color-primary-d);
+        }
+
+        &::before {
+            @include trs;
+            @include absolute(null, null, -2px, 0);
+            @include size(0px, 2px);
+            background-color: var(--color-primary-h);
+            content: '';
+        }
+
+        svg {
+            @include trs();
+        }
+
+        @include on-event {
+            color: var(--color-primary-h);
+
+            &::before {
+                width: 100%;
+            }
+
+            svg {
+                transform: rotate(180deg);
+
+                path {
+                    fill: var(--color-primary-h);
+                }
+            }
+        }
+    }
+
+    &__icon {
+        @include size(24px);
+        display: inline-flex;
+    }
+
+    &__dropdown {
+        @include trs;
+        @include absolute(85px, 20px);
+        background-color: $color-white;
+        border: 1px solid var(--color-gray);
+        border-radius: 12px;
+        box-shadow: 4px 4px 20px 0px rgba(114, 114, 168, 0.10);
+        max-width: 930px;
+        padding: 40px;
+        opacity: 0;
+        visibility: hidden;
+        width: 101%;
+        z-index: 10;
+
+        @include tablet {
+            @include absolute(-1px, auto, auto, 50%);
+            transform: translateX(-50%);
+        }
+
+        @include mobile {
+            padding: 40px 20px;
+        }
+
+        .is-opened & {
+            @include size(101%, calc(100vh - 100px));
+            opacity: 1;
+            visibility: visible;
+            overflow-y: auto;
+        } 
+    }
+
+    &__dropdown-wrapper {
+        margin-bottom: 40px;
+
+        &:nth-child(2) {
+            margin-bottom: 24px;
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        &.is-btns {
+            display: none;
+
+            @include tablet {
+                @include flex-all-sb;
+            }
+        }
+
+        &.is-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 245px);
+            gap: 0 40px;
+        }
+
+        &.is-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+
+            @include mobile {
+                gap: 40px 0;
+                flex-direction: column;
+            }
+        }
+    }
+
+    &__dropdown-inner {
+        display: flex;
+        flex-direction: column;
+
+        .is-flex & {
+            width: 220px;
+        }
+    }
+
+    &__dropdown-title {
+        border-bottom: 1px solid var(--color-gray);
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+
+    &__dropdown-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px 0;
+    }
+
+    &__dropdown-link {
+        @include font(var(--typo-1), 15px, var(--fw-bold));
+        @include trs();
+        color: var(--color-dark-blue);
+
+        @include on-event {
+            color: var(--color-primary-h);
+        }
+
+        &.is-close {
+            align-items: center;
+            display: flex;
+            color: var(--color-primary-d);
+        }
+    }
+
+    &__dropdown-icon {
+        @include tablet {
+            @include size(24px);
+            display: inline-flex;
+            position: relative;
+
+            &::before {
+                @include trs;
+                @include absolute(0, 0);
+                @include size(24px);
+                background: {
+                    image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M15.4102 7.41L10.8302 12L15.4102 16.59L14.0002 18L8.00016 12L14.0002 6L15.4102 7.41Z' fill='%23EE8253'/%3E%3C/svg%3E");
+                    repeat: no-repeat;
+                };
+                content: '';
+            }
+        }
+    }
+}

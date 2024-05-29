@@ -1,0 +1,100 @@
+.unfold {
+    margin-top: 80px;
+
+    @include desktop {
+        margin-top: 60px;
+    }
+
+    @include tablet {
+        margin-top: 40px;
+    }
+
+    .title {
+        margin: 0 auto 60px;
+        max-width: 730px;
+
+        @include desktop {
+            margin-bottom: 40px;
+        }
+
+        @include tablet {
+            max-width: 688px;
+        }
+    }
+
+    &__wrapper {
+        display: grid;
+        gap: 0 145px;
+        grid-template-columns: 730px 605px;
+
+        @include desktop {
+            gap: 0 20px;
+            grid-template-columns: 645px 455px;
+        }
+
+        @include tablet {
+            grid-template-columns: auto;
+        }
+    }
+
+    &__question {
+        @include trs();
+        border-left: 2px solid transparent;
+        cursor: pointer;
+        padding: 24px 20px;
+        position: relative;
+        z-index: 1;
+
+        @include on-event {
+            border-color: var(--color-primary-h);
+            color: var(--color-primary-h);
+        }
+
+        .is-open & {
+            border-color: var(--color-primary-d);
+            color: var(--color-primary-d);
+        }
+    }
+
+    &__answer {
+        @include font(var(--typo-2), 15px, var(--fw-normal));
+        @include trs();
+        max-height: 0;
+        opacity: 0;
+
+        .is-open & {
+            opacity: 1;
+            overflow: visible;
+        }
+    }
+
+    &__answer-inner {
+        display: flex;
+        flex-direction: column;
+        gap: 20px 0;
+        padding: 20px 0 20px 40px !important;
+    }
+
+    &__answer-item {
+        position: relative;
+
+        &::before {
+            @include absolute(10px, null, null, -18px);
+            @include size(8px);
+            background-color: var(--color-secondary-d);
+            border-radius: 50%;
+            content: '';
+        }
+
+        .is-bold {
+            color: var(--color-secondary-d);
+            font-weight: var(--fw-bold);
+        }
+    }
+
+    &__image {
+        @include tablet {
+            display: none;
+        }
+    }
+}

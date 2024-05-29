@@ -1,0 +1,235 @@
+.calculator {
+    position: relative;
+
+    &__form {
+        align-items: center;
+        background-color: $color-white;
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px 40px 40px;
+
+        @include desktop {
+            padding: 20px 20px 40px;
+        }
+
+        @include tablet {
+            padding: 20px 40px 40px;
+        }
+
+        @include sm-mobile {
+            padding: 10px 20px 20px;
+        }
+    }
+
+    &__wrapper{
+        display: flex;
+        flex-direction: column;
+        gap: 30px 0;
+        min-height: 400px;
+        position: relative;
+
+        @include sm-mobile {
+            min-height: 430px;
+        }
+    }
+
+    &__content {
+        @include absolute(100px, null, null, 0);
+        @include trs();
+        background-color: $color-white;
+        display: flex;
+        flex-direction: column;
+        gap: 30px 0;
+
+        @include sm-mobile {
+            gap: 20px 0;
+            top: 90px;
+            width: 100%;
+        }
+
+        &.is-hide {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        &.is-show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        &.is-other {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+    }
+
+    &__list {
+        @include flex-all-center;
+    }
+
+    &__link {
+        @include trs();
+        @include font(var(--typo-2), 15px, var(--fw-normal));
+        border-bottom: 2px solid var(--color-gray);
+        color: var(--color-dark-gray);
+        cursor: pointer;
+        padding: 20px 30px;
+        text-align: center;
+        width: 125px;
+
+        @include desktop {
+            width: 120px;
+        }
+
+        @include tablet {
+            width: 125px;
+        }
+
+        @include sm-mobile {
+            padding: 20px 10px;
+            width: 93px;
+        }
+
+        @include on-event {
+            border-bottom: 2px solid var(--color-primary-d);
+            color: var(--color-primary-d);
+        }
+
+        &.is-active {
+            border-bottom: 2px solid var(--color-primary-d);
+            color: var(--color-primary-d);
+            font-weight: var(--fw-bold);
+        }
+    }
+
+    &__wrap {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__group {
+        align-items: center;
+        display: flex;
+
+        @include sm-mobile {
+            flex-direction: column;
+            gap: 12px 0;
+        }
+    }
+
+    &__select-block {
+        position: relative;
+
+        &::after {
+            @include size(25px);
+            @include absolute(15px, 10px);
+            background: {
+                image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='25' height='24' viewBox='0 0 25 24' fill='none'%3E%3Cg clip-path='url(%23clip0_3864_10269)'%3E%3Cpath d='M7.91 8.58984L12.5 13.1698L17.09 8.58984L18.5 9.99984L12.5 15.9998L6.5 9.99984L7.91 8.58984Z' fill='%23252B4A'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_3864_10269'%3E%3Crect width='24' height='24' fill='white' transform='translate(0.5)'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+                repeat: no-repeat;
+            };
+            content: '';
+            pointer-events: none;
+            z-index: 1;
+        }
+    }
+
+    &__label {
+        @include font(var(--typo-2), 15px, var(--fw-bold));
+        color: var(--color-dark-blue);
+        margin-bottom: 8px;
+    }
+
+    &__custom-select,
+    &__custom-select-second {
+        cursor: pointer;
+        position: relative;
+        width: 100%;
+    }
+
+    &__selected-item,
+    &__selected-item-second {
+        @include trs();
+        @include font(var(--typo-2), 17px, var(--fw-normal));
+        background-color: $color-white;
+        border: 1px solid var(--color-gray);
+        border-radius: 12px;
+        color: var(--color-dark-blue);
+        padding: 12px 20px;
+
+        @include on-event {
+            background: var(--color-hover-gray);
+        }
+    }
+
+    &__dropdown,
+    &__dropdown-second {
+        @include absolute(55px, null, null, 0);
+        @include trs();
+        background-color: $color-white;
+        border-radius: 12px;
+        box-shadow: 4px 4px 20px 0px rgba(114, 114, 168, 0.10);
+        display: block;
+        max-height: 0;
+        opacity: 0;
+        overflow-y: auto;
+        padding: 10px 0;
+        visibility: hidden;
+        width: 100%;
+        z-index: 3;
+
+        &.is-open {
+            max-height: 300px;
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &__option,
+    &__option-second {
+        @include font(var(--typo-2), 17px, var(--fw-normal));
+        @include trs();
+        color: var(--color-dark-blue);
+        cursor: pointer;
+        padding: 12px 20px;
+
+        @include on-event {
+            color: var(--color-primary-d);
+        }
+    }
+
+    &__result {
+        @include font(var(--typo-1), 28px, var(--fw-bold));
+        color: var(--color-secondary-d);
+    }
+
+    &__result-text {
+        line-height: 1;
+        width: 140px;
+    }
+
+    &__price {
+        @include flex-v-center;
+        @include font(var(--typo-2), 15px, var(--fw-normal));
+        align-items: flex-start;
+        color: var(--color-dark-gray);
+        flex-direction: column;
+        margin-right: 10px;
+
+        @include sm-mobile {
+            align-items: center;
+            margin: 0;
+            text-align: center;
+        }
+    }
+
+    &__button {
+        cursor: pointer;
+    }
+
+    &__title {
+        margin-bottom: 10px;
+    }
+}

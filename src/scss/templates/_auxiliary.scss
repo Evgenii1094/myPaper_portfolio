@@ -1,0 +1,17 @@
+.overlay {
+    @include fixed(60px, null, null, 0);
+    @include trs();
+    @include size(100%);
+    display: none;
+    z-index: 1;
+
+    .is-review-page & {
+        background-color: var(--color-secondary-bg);
+    }
+}
+
+.site-wrapper {
+    &.is-fixed {
+        padding-top: 117px;
+    }
+}

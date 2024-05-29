@@ -1,0 +1,46 @@
+<section class="section feedback" id="feedback">
+    <div class="container">
+        <div class="feedback__wrapper">
+            <div class="feedback__title title">
+                <h2 class="title__text">Leave Your Feedback</h2>
+                <div class="feedback__rating js-rating">
+                    <span class="feedback__star js-star" data-rating="1"></span>
+                    <span class="feedback__star js-star" data-rating="2"></span>
+                    <span class="feedback__star js-star" data-rating="3"></span>
+                    <span class="feedback__star js-star" data-rating="4"></span>
+                    <span class="feedback__star js-star" data-rating="5"></span>
+                </div>
+            </div>
+            <form class="feedback__form" id="feedbackForm">
+                <div class="feedback__inner">
+                    <label class="feedback__label" for="contact-name">Name</label>
+                    <input
+                        class="feedback__area"
+                        type="text"
+                        id="contact-name"
+                        name="name">
+                </div>
+
+                <div class="feedback__inner">
+                    <label class="feedback__label" for="contact-email">Email</label>
+                    <input
+                        class="feedback__area"
+                        type="email"
+                        id="contact-email"
+                        name="email">
+                </div>
+
+                <div class="feedback__inner">
+                    <label class="feedback__label" for="contact-comment">Comment</label>
+                    <textarea
+                        class="feedback__area"
+                        id="contact-comment"
+                        name="comment"
+                        rows="6"></textarea>
+                </div>
+
+                <button type="submit" class="btn is-large feedback__btn">Submit Your Review</button>
+            </form>
+        </div>
+    </div>
+</section>

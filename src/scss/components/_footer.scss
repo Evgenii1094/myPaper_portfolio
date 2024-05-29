@@ -1,0 +1,245 @@
+.footer {
+    background-color: var(--color-dark-blue);
+    overflow: hidden;
+    padding: 80px 0;
+
+    @include tablet {
+        padding: 60px 0;
+    }
+
+    @include mobile {
+        padding: 40px 0;
+    }
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        gap: 40px 0;
+    }
+
+    &__row {
+        &.is-grid {
+            display: grid;
+            gap: 0 20px;
+            grid-template-columns: 340px 730px 280px;
+            justify-content: center;
+
+            @include desktop {
+                gap: 0 72px;
+                grid-template-columns: 340px 360px 265px;
+            }
+
+            @include tablet {
+                grid-template-columns: auto;
+                gap: 40px 20px;
+            }
+
+            @include mobile {
+                gap: 40px 0;
+            }
+        }
+
+        &:last-child {
+            display: flex;
+            flex-direction: column;
+            gap: 20px 0;
+        }
+    }
+
+    &__column {
+        &.is-first {
+            padding-right: 20px;
+
+            @include tablet {
+                grid-row: 1;
+                grid-column: 1 / span 1;
+                padding: 0;
+            }
+
+            @include mobile {
+                @include flex-all-center;
+                grid-column: 1 / span 3;
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        &.is-second {
+            display: grid;
+            gap: 30px 20px;
+            grid-template-columns: repeat(2, 355px);
+            height: fit-content;
+
+            @include desktop {
+                grid-template-columns: auto;
+            }
+
+            @include tablet {
+                grid-row: 2;
+                grid-column: 1 / span 3;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @include mobile {
+                grid-row: 3;
+                grid-template-columns: auto;
+                margin: 0 auto;
+                width: 320px;
+            }
+        }
+
+        &.is-third {
+            display: flex;
+            flex-direction: column;
+            gap: 20px 0;
+
+            @include tablet {
+                grid-row: 1;
+                grid-column: 3 / span 1;
+            }
+
+            @include mobile {
+                grid-row: 2;
+                grid-column: 1 / span 3;
+                text-align: center;
+            }
+        }
+    }
+
+    &__logo {
+        margin-bottom: 12px;
+    }
+
+    &__descr {
+        @include font(var(--typo-2), 12px, var(--fw-normal));
+        color: var(--color-gray);
+        margin-bottom: 40px;
+
+        @include mobile {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__payment {
+        display: flex;
+        gap: 0 8px;
+        margin-bottom: 40px;
+
+        @include mobile {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__pay-logo {
+        @include flex-all-center;
+        @include size(38px, 22px);
+        border: 1px solid var(--color-gray);
+        border-radius: 5px;
+    }
+
+    &__title-drop {
+        @include trs();
+        @include font(var(--typo-2), 15px, var(--fw-bold));
+        color: var(--color-gray);
+        cursor: pointer;
+        position: relative;
+
+        @include on-event {
+            color: var(--color-dark-gray);
+        }
+
+        &::before {
+            @include trs();
+            @include absolute(50%, 0);
+            @include size(24px);
+            background: {
+                image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cg clip-path='url(%23clip0_3753_40408)'%3E%3Cpath d='M7.41 8.58984L12 13.1698L16.59 8.58984L18 9.99984L12 15.9998L6 9.99984L7.41 8.58984Z' fill='%23CCCFD3'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_3753_40408'%3E%3Crect width='24' height='24' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+                repeat: no-repeat;
+            };
+            content: '';
+            transform: translateY(-50%);
+        }
+
+        .is-open & {
+            color: var(--color-dark-gray);
+
+            &::before {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cg clip-path='url(%23clip0_3753_40408)'%3E%3Cpath d='M7.41 8.58984L12 13.1698L16.59 8.58984L18 9.99984L12 15.9998L6 9.99984L7.41 8.58984Z' fill='%238287A1'/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id='clip0_3753_40408'%3E%3Crect width='24' height='24' fill='white'/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+                transform: translateY(-50%) rotate(180deg);
+            }
+        }
+    }
+
+    &__dropdown-wrap {
+        @include trs();
+        max-height: 0;
+        opacity: 0;
+
+        .is-open & {
+            opacity: 1;
+            overflow: visible;
+            padding-top: 15px;
+        }
+    }
+
+    &__dropdown-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px 0;
+        pointer-events: none;
+
+        .is-open & {
+            pointer-events: visible;
+        }
+    }
+
+    &__dropdown-link {
+        @include font(var(--typo-2), 15px, var(--fw-normal));
+        color: var(--color-gray);
+
+        @include on-event {
+            text-decoration: underline;
+        }
+    }
+
+    &__title-link {
+        @include font(var(--typo-2), 15px, var(--fw-normal));
+        color: var(--color-dark-gray);
+        margin-bottom: 4px;
+    }
+
+    &__link {
+        @include font(var(--typo-2), 15px, var(--fw-bold));
+        color: var(--color-gray);
+
+        @include on-event {
+            text-decoration: underline;
+        }
+    }
+
+    &__list {
+        @include flex-all-center;
+        gap: 0 40px;
+
+        @include tablet {
+            flex-wrap: wrap;
+            gap: 20px 40px;
+        }
+    }
+
+    &__item-link {
+        @include font(var(--typo-2), 15px, var(--fw-bold));
+        color: var(--color-gray);
+
+        @include on-event {
+            text-decoration: underline;
+        }
+    }
+
+    &__info,
+    &__copyright {
+        @include font(var(--typo-2), 15px, var(--fw-normal));
+        color: var(--color-dark-gray);
+        text-align: center;
+    }
+}

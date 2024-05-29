@@ -1,0 +1,66 @@
+.brands {
+    background-color: var(--color-secondary-bg);
+
+    &__wrapper {
+        @include flex-all-center;
+
+        position: relative;
+        flex-direction: column;
+        border-top: 1px solid var(--color-secondary-d);
+        padding: 40px 0;
+        gap: 30px 0;
+
+        @include tablet {
+            border: 0;
+            padding: 0;
+        }
+    }
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        @include desktop {
+            gap: 0 75px;
+        }
+
+        @include tablet {
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px 20px;
+        }
+
+        @include mobile {
+            flex-direction: column;
+            gap: 40px 0;
+        }
+    }
+
+    &__logo {
+        img {
+            @include mobile {
+                margin: 0 auto;
+                max-width: 80%;
+            }
+        }
+    }
+
+    &__title {
+        @include font(var(--typo-2), 17px, var(--fw-bold));
+
+        color: var(--color-dark-blue);
+    }
+
+    &__category {
+        @include font(var(--typo-1), 21px, var(--fw-bold));
+
+        color: var(--color-dark-blue);
+    }
+
+    @include tablet {
+        border-top: 1px solid var(--color-secondary-d);
+        padding: 40px 0;
+    }
+}

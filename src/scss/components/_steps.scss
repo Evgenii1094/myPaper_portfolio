@@ -1,0 +1,92 @@
+.steps {
+    .title {
+        margin: 0 auto 60px;
+        max-width: 730px;
+
+        @media (max-width: (1599px)) {
+            margin-bottom: 40px;
+        }
+
+        @include tablet {
+            max-width: 570px;
+        }
+    }
+
+    &__wrapper {
+        display: grid;
+        gap: 0 20px;
+        grid-template-columns: repeat(4, 355px);
+        margin-top: 110px;
+
+        @media (max-width: (1599px)) {
+            gap: 90px 20px;
+            grid-template-columns: repeat(2, 550px);
+            grid-template-rows: repeat(2, 1fr);
+            justify-content: center;
+            margin-top: 90px;
+        }
+
+        @include tablet {
+            grid-template-columns: repeat(2, minmax(334px, 550px));
+        }
+
+        @include mobile {
+            gap: 70px 0;
+            grid-template-columns: auto;
+        }
+    }
+
+    &__item {
+        @include flex-all-center;
+        background-color: var(--color-secondary-bg);
+        border-radius: 12px;
+        flex-direction: column;
+        padding: 80px 30px 30px;
+        position: relative;
+        text-align: center;
+    }
+
+    &__group {
+        @include absolute(-50px, null, null, 50%);
+        @include flex-all-center;
+        @include size(100px);
+        background-color: var(--color-secondary-bg);
+        border: 1px solid var(--color-secondary-d);
+        border-radius: 12px;
+        flex-direction: column;
+        transform: translateX(-50%);
+    }
+
+    &__num {
+        @include font(var(--typo-1), 36px, var(--fw-bold));
+        color: var(--color-secondary-d);
+    }
+
+    &__text {
+        @include font(var(--typo-2), 17px, var(--fw-bold));
+        color: var(--color-secondary-d);
+    }
+
+    &__title {
+        margin-bottom: 12px;
+    }
+
+    &__buttons {
+        @include flex-all-center;
+        gap: 0 20px;
+        margin-top: 60px;
+
+        @media (max-width: (1599px)) {
+            margin-top: 40px;
+        }
+
+        @include sm-mobile {
+            flex-direction: column;
+            gap: 20px 0;
+
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}

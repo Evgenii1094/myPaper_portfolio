@@ -1,0 +1,7 @@
+.section {
+    margin: 140px 0;
+
+    @include desktop {
+        margin: 120px 0;
+    }
+}

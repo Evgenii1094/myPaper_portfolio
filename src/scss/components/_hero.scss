@@ -1,0 +1,217 @@
+.hero {
+    $this: &;
+
+    overflow-x: clip;
+    padding: 100px 0;
+    background-color: var(--color-secondary-bg);
+
+    &__container {
+        display: flex;
+        padding: 0 40px;
+        gap: 0 40px;
+
+        @include desktop {
+            padding: 0;
+            gap: 0 20px;
+        }
+
+        @include tablet {
+            flex-direction: column;
+            align-items: center;
+            padding: 0 40px;
+            gap: 80px 0;
+        }
+
+        @include mobile {
+            padding: 0 20px;
+            gap: 40px 0;
+        }
+    }
+
+    &__content {
+        margin-bottom: 40px;
+
+        @include tablet {
+            @include flex-v-center;
+
+            flex-direction: column;
+        }
+    }
+
+    &__title {
+        @include font(var(--typo-1), 56px, var(--fw-bold));
+
+        margin-bottom: 20px;
+        width: 710px;
+        line-height: 130%;
+        color: var(--color-dark-blue);
+
+        @include desktop {
+            width: 530px;
+            font-size: 48px;
+        }
+
+        @include tablet {
+            margin: 0 auto 20px;
+            width: 650px;
+            text-align: center;
+        }
+
+        @include mobile {
+            margin: 0 auto 20px;
+            width: 100%;
+            max-width: 650px;
+            font-size: 36px;
+        }
+    }
+
+    &__category {
+        width: 490px;
+
+        @include tablet {
+            text-align: center;
+        }
+
+        @include mobile {
+            margin: 0 auto;
+            width: 100%;
+            max-width: 490px;
+        }
+    }
+
+    &__buttons {
+        @include flex-v-center;
+
+        margin-bottom: 60px;
+        gap: 0 20px;
+
+        .btn {
+            @include sm-mobile {
+                width: 100%;
+            }
+        }
+
+        @include tablet {
+            justify-content: center;
+        }
+
+        @include mobile {
+            flex-direction: column;
+            margin-bottom: 40px;
+            gap: 20px 0;
+        }
+    }
+
+    &__list {
+        @include flex-v-center;
+
+        gap: 0 60px;
+
+        @include desktop {
+            gap: 0 20px;
+        }
+
+        @include tablet {
+            justify-content: center;
+            gap: 0 70px;
+        }
+
+        @include sm-mobile {
+            gap: 0 25px;
+        }
+    }
+
+    &__brand {
+        @include flex-v-center;
+
+        gap: 0 20px;
+
+        @include mobile {
+            gap: 0 10px;
+        }
+    }
+
+    &__brand-rating {
+        @include size(100px, 20px);
+
+        position: relative;
+        display: inline-flex;
+        margin-left: 6px;
+
+        &::before {
+            @include absolute(50%, null, null, 50%);
+            @include size(105px, 20px);
+
+            content: "";
+            transform: translate(-50%, -50%);
+            background: {
+                image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21' height='21' viewBox='0 0 21 21' fill='none'%3E%3Cpath d='M10.4999 14.8921L13.9583 16.9838C14.5916 17.3671 15.3666 16.8005 15.1999 16.0838L14.2833 12.1505L17.3416 9.50045C17.8999 9.01712 17.5999 8.10045 16.8666 8.04212L12.8416 7.70046L11.2666 3.98379C10.9833 3.30879 10.0166 3.30879 9.73327 3.98379L8.15827 7.69212L4.13327 8.03379C3.39994 8.09212 3.09994 9.00879 3.65827 9.49212L6.71661 12.1421L5.79994 16.0755C5.63327 16.7921 6.40827 17.3588 7.04161 16.9755L10.4999 14.8921Z' fill='%23FFB800'/%3E%3C/svg%3E");
+            };
+
+            @include mobile {
+                width: 20px;
+                background-repeat: no-repeat;
+            }
+        }
+
+        @include mobile {
+            width: 20px;
+        }
+    }
+
+    &__brand-row {
+        @include flex-v-center;
+    }
+
+    &__brand-num {
+        @include font(var(--typo-2), 17px, var(--fw-bold));
+
+        color: var(--color-dark-blue);
+    }
+
+    &__brand-name {
+        @include font(var(--typo-2), 15px, var(--fw-normal));
+
+        color: var(--color-dark-blue);
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    .is-review-page & {
+        padding: 0;
+        background-color: $color-white;
+
+        #{$this}__container {
+            align-items: center;
+            justify-content: space-between;
+
+            @include tablet {
+                gap: 0;
+            }
+        }
+
+        #{$this}__image {
+            @include tablet {
+                display: none;
+            }
+        }
+
+        @include tablet {
+            margin-top: 40px;
+        }
+
+        @include mobile {
+            margin-top: 20px;
+        }
+    }
+
+    @include desktop {
+        padding: 60px 0 80px;
+    }
+
+    @include mobile {
+        padding: 40px 0 60px;
+    }
+}

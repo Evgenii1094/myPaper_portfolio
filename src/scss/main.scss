@@ -1,0 +1,65 @@
+// base
+@import "config";
+@import "mixins";
+@import "fonts";
+
+// templates
+@import "./templates/container";
+@import "./templates/button";
+@import "./templates/section";
+@import "./templates/title";
+@import "./templates/paragraph";
+@import "./templates/item-title";
+@import "./templates/site-wrapper";
+@import "./templates/navigation";
+@import "templates/auxiliary";
+
+// index.html
+@import "./components/header";
+@import "./components/header-nav";
+@import "./components/hero";
+@import "./components/calculator";
+@import "./components/brands";
+@import "./components/benefits";
+@import "./components/experts";
+@import "./components/order";
+@import "./components/review";
+@import "./components/no-ai";
+@import "./components/more-block";
+@import "./components/faq";
+@import "./components/seo-block";
+@import "./components/stats";
+@import "./components/guarantee";
+@import "./components/footer";
+
+// page-seo.html
+@import "./components/seo-hero";
+
+// page-price.html
+@import "./components/price";
+@import "./components/tab-dropdown";
+@import "./components/loyalty";
+
+// page-about.html
+@import "./components/about-hero";
+@import "./components/industry";
+@import "./components/history";
+@import "./components/about-team";
+@import "./components/about-connect";
+@import "./components/about-join";
+@import "./components/vet";
+@import "./components/team";
+
+// page-work.html
+@import "./components/unfold";
+@import "./components/steps";
+
+// page-contact.html
+@import "./components/contact";
+
+// page-error.html
+@import "./components/error";
+
+// page-review.html
+@import "./components/feedback";
+@import "./components/send-result";

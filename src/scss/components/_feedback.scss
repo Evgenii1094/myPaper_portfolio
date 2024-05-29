@@ -1,0 +1,96 @@
+.feedback {
+    position: relative;
+    z-index: 1;
+
+    &__wrapper {
+        border: 1px solid var(--color-gray);
+        border-radius: 12px;
+        margin: 0 auto;
+        padding: 80px 125px;
+        width: 980px;
+
+        @include tablet {
+            padding: 80px;
+            width: 688px;
+        }
+
+        @include mobile {
+            padding: 40px 20px;
+            width: 100%;
+        }
+    }
+
+    &__title {
+        margin-bottom: 40px;
+
+        @include sm-mobile {
+            margin: 0 auto;
+            width: 215px;
+        }
+    }
+
+    &__rating {
+        font-size: 0;
+        cursor: pointer;
+        margin-top: 20px;
+    }
+
+    &__star {
+        display: inline-block;
+        width: 30px;
+        height: 30px;
+        background-image: url('../../img/contact-star.png');
+        background-size: cover;
+        padding: 0 5px;
+
+        &.is-active {
+            background-image: url('../../img/active-star.svg');
+        }
+
+        @include on-event {
+            background-image: url('../../img/active-star.svg');
+        }
+    }
+
+    &__form {
+        @include flex-v-center;
+        flex-direction: column;
+        gap: 20px 0;
+    }
+
+    &__inner {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    &__label {
+        @include font(var(--typo-2), 15px, var(--fw-bold));
+        color: var(--color-dark-blue);
+        margin-bottom: 8px;
+    }
+
+    &__area {
+        @include font(var(--typo-2), 17px, var(--fw-normal));
+        border: 1px solid var(--color-gray);
+        border-radius: 12px;
+        color: var(--color-dark-blue);
+        padding: 15px 20px;
+
+        &:focus-visible,
+        &:focus-within,
+        &:focus {
+            outline: 1px solid var(--color-primary-d);
+        }
+    }
+
+    &__btn {
+        cursor: pointer;
+        margin-top: 20px;
+        width: 100%;
+
+        @include mobile {
+            margin: 0;
+        }
+    }
+}

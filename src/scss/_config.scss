@@ -1,0 +1,44 @@
+// Colors
+$color-white: #fff;
+$color-black: #000;
+
+:root {
+    // Font family
+    --typo-1: 'Poppins', Arial, 'Franklin Gothic Bold', sans-serif;
+    --typo-2: 'Open Sans', Arial, 'Franklin Gothic Bold', sans-serif;
+
+    // Color primary
+    --color-primary-d: #EE8253;
+    --color-primary-h: #C66C45;
+    --color-primary-bg: #FFEBE3;
+
+    // Color secondary
+    --color-secondary-d: #4F56B2;
+    --color-secondary-bg: #F7F7FF;
+
+    // Color other
+    --color-dark-blue: #252B4A;
+    --color-dark-gray: #8287A1;
+    --color-placeholder: #B8B9BA;
+    --color-gray: #CCCFD3;
+    --color-hover-gray: #F5F5F5;
+    --color-light-gray: #FAFAFA;
+
+    --color-green: #4DC568;
+    --color-rating: #FFB800;
+    --color-blue: #6E81E3;
+    --color-tooltip: #3A3B41;
+
+
+    // Font weight
+    --fw-thin: 100;
+    --fw-extralight: 200;
+    --fw-light: 300;
+    --fw-normal: 400;
+    --fw-medium: 500;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+    --fw-extrabold: 800;
+    --fw-black: 900;
+}
+

@@ -1,0 +1,52 @@
+.error {
+    margin-top: 60px;
+
+    @include desktop {
+        margin-top: 40px;
+    }
+
+    .title {
+        text-align: left;
+        margin-bottom: 40px;
+
+        @include mobile {
+            text-align: center;
+        }
+    }
+
+    &__wrapper {
+        align-items: center;
+        display: grid;
+        gap: 0 145px;
+        grid-template-columns: 605px 480px;
+        justify-content: center;
+
+        @include desktop {
+            gap: 0 35px;
+        }
+
+        @include tablet {
+            gap: 0 20px;
+            grid-template-columns: repeat(2, 334px);
+        }
+
+        @include mobile {
+            gap: 40px 0;
+            grid-template-columns: auto;
+        }
+    }
+
+    &__image {
+        @include mobile {
+            grid-row: 1;
+        }
+    }
+
+    &__content {
+        @include mobile {
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

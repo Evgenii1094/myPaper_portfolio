@@ -1,0 +1,194 @@
+.header {
+    $this: &;
+    @include absolute(0, null, null, 0);
+    @include trs(top);
+    background-color: $color-white;
+    padding: 0 40px;
+    position: relative;
+    width: 100%;
+    z-index: 101;
+
+    .is-home-page &,
+    .is-seo-page & {
+        background-color: var(--color-secondary-bg);
+    }
+
+    @include desktop {
+        padding: 0;
+    }
+
+    @include tablet {
+        overflow: hidden;
+    }
+
+    &.is-fixed {
+        position: fixed;
+        top: 40px;
+        transform: translateY(-40px);
+    }
+
+    &__inner {
+        @include flex-all-sb;
+        padding: 10px 0;
+        position: relative;
+
+        @include tablet {
+            padding: 20px 0;
+        }
+    }
+
+    &__logo {
+        img {
+            @include trs();
+
+            @include on-event {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    &__content {
+        @include flex-v-center;
+        gap: 0 80px;
+
+        @include desktop {
+            gap: 0 40px;
+        }
+    }
+
+    &__nav {
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__buttons {
+        @include flex-v-center;
+        gap: 0 20px;
+
+        @include mobile {
+            display: none;
+        }
+    }
+
+    &__buttons-icon {
+        @include size(16px);
+        display: inline-flex;
+        margin-right: 8px;
+    }
+
+    &__menu {
+        display: none;
+
+        @include tablet {
+            @include trs();
+            cursor: pointer;
+            display: block;
+            overflow: hidden;
+        }
+
+        .is-open & {
+            overflow: visible;
+            z-index: 10;
+        }
+    }
+
+    &__hamburger {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        width: 30px;
+    }
+
+    &__bar {
+        @include tablet {
+            @include trs();
+            @include size(30px, 4px);
+            background-color: var(--color-primary-d);
+            border-radius: 12px;
+            margin-bottom: 4px;
+
+            .is-open & {
+                margin: -2px;
+
+                &:first-child {
+                    transform: rotate(45deg);
+                }
+
+                &:nth-child(2) {
+                    display: none;
+                }
+
+                &:last-child {
+                    transform: rotate(-45deg);
+                }
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    &__hamburger-menu {
+        #{$this}__buttons {
+            display: none;
+        }
+
+        @include tablet {
+            @include trs();
+            @include absolute(90px, -20px);
+            background-color: $color-white;
+            border: 1px solid var(--color-gray);
+            border-radius: 12px;
+            box-shadow: 4px 4px 20px 0px rgba(114, 114, 168, 0.10);
+            justify-content: center;
+            padding: 40px;
+            transform: translateX(120%);
+            visibility: hidden;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .is-open & {
+            left: 50%;
+            right: 0;
+            transform: translateX(-50%);
+            visibility: visible;
+        }
+    }
+
+    &__hamburger-list {
+        @include flex-all-center;
+        gap: 0 24px;
+
+        @include mobile {
+            flex-direction: column;
+            gap: 40px 0;
+        }
+    }
+
+    &__hamburger-link {
+        @include font(var(--typo-2), 15px, var(--fw-bold));
+        color: var(--color-dark-blue);
+    }
+
+    &__hamburger-icon {
+        @include size(12px);
+        display: inline-flex;
+        position: relative;
+
+        &::before {
+            @include trs;
+            @include absolute(50%, 0);
+            @include size(12px);
+            background: {
+                image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMiIGhlaWdodD0iMTMiIHZpZXdCb3g9IjAgMCAxMyAxMyIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxwYXRoIGQ9Ik0yLjAyNjYxIDVMNi4wMjY2MSA5TDEwLjAyNjYgNSIgc3Ryb2tlPSIjMkUzNTQzIi8+Cjwvc3ZnPgo=");
+                repeat: no-repeat;
+            };
+            content: '';
+            margin-top: 1px;
+            transform: translateY(-50%) rotate(-90deg);
+        }
+    }
+}

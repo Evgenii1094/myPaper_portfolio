@@ -1,0 +1,61 @@
+.about-connect {
+    .title {
+        @include desktop {
+            margin-bottom: 60px;
+        }
+
+        @include tablet {
+            margin-bottom: 40px;
+        }
+    }
+
+    &__wrapper {
+        display: grid;
+        gap: 0 20px;
+        grid-template-columns: repeat(3, 480px);
+        justify-content: center;
+
+        @include desktop {
+            grid-template-columns: repeat(3, 360px);
+        }
+
+        @include tablet {
+            grid-template-columns: repeat(3, 216px);
+        }
+
+        @include mobile {
+            grid-template-columns: auto;
+            gap: 40px 0;
+        }
+    }
+
+    &__icon {
+        @include size(100px);
+        @include flex-all-center;
+        border-radius: 24px;
+        background-color: var(--color-secondary-bg);
+        margin-bottom: 30px;
+    }
+
+    &__item {
+        @include flex-v-center;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    &__paragraph {
+        margin-bottom: 12px;
+    }
+
+    &__descr,
+    &__link {
+        @include font(var(--typo-1), 21px, var(--fw-bold));
+        color: var(--color-primary-d);
+    }
+
+    &__link {
+        @include on-event {
+            text-decoration: underline;
+        }
+    }
+}

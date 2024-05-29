@@ -1,0 +1,78 @@
+.faq {
+    .title {
+        @include tablet {
+            margin: 0 auto 40px;
+            max-width: 570px;
+        }
+    }
+
+    &__container {
+        max-width: 980px;
+    }
+
+    &__wrapper {
+        border-bottom: 1px solid var(--color-gray);
+    }
+
+    &__question {
+        @include font(var(--typo-2), 17px, var(--fw-bold));
+        @include trs();
+        color: var(--color-dark-blue);
+        cursor: pointer;
+        padding: 24px 30px 24px 0;
+        position: relative;
+        z-index: 1;
+
+        @include mobile {
+            padding-right: 35px;
+        }
+
+        @include on-event {
+            color: var(--color-primary-h);
+
+            &::before {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M24.0003 17.3307H8.00033C7.6467 17.3307 7.30757 17.1903 7.05752 16.9402C6.80747 16.6902 6.66699 16.351 6.66699 15.9974C6.66699 15.6438 6.80747 15.3046 7.05752 15.0546C7.30757 14.8045 7.6467 14.6641 8.00033 14.6641H24.0003C24.3539 14.6641 24.6931 14.8045 24.9431 15.0546C25.1932 15.3046 25.3337 15.6438 25.3337 15.9974C25.3337 16.351 25.1932 16.6902 24.9431 16.9402C24.6931 17.1903 24.3539 17.3307 24.0003 17.3307Z' fill='%23C66C45'/%3E%3Cpath d='M14.6663 24.0003L14.6663 8.00033C14.6663 7.6467 14.8068 7.30757 15.0569 7.05752C15.3069 6.80747 15.6461 6.66699 15.9997 6.66699C16.3533 6.66699 16.6924 6.80747 16.9425 7.05752C17.1925 7.30757 17.333 7.6467 17.333 8.00033L17.333 24.0003C17.333 24.3539 17.1925 24.6931 16.9425 24.9431C16.6924 25.1932 16.3533 25.3337 15.9997 25.3337C15.6461 25.3337 15.3069 25.1932 15.0569 24.9431C14.8068 24.6931 14.6663 24.3539 14.6663 24.0003Z' fill='%23C66C45'/%3E%3C/svg%3E");
+            }
+        }
+
+        &::before {
+            @include absolute(50%, 0);
+            @include size(24px);
+            @include trs();
+            background: {
+                image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M24.0003 17.3307H8.00033C7.6467 17.3307 7.30757 17.1903 7.05752 16.9402C6.80747 16.6902 6.66699 16.351 6.66699 15.9974C6.66699 15.6438 6.80747 15.3046 7.05752 15.0546C7.30757 14.8045 7.6467 14.6641 8.00033 14.6641H24.0003C24.3539 14.6641 24.6931 14.8045 24.9431 15.0546C25.1932 15.3046 25.3337 15.6438 25.3337 15.9974C25.3337 16.351 25.1932 16.6902 24.9431 16.9402C24.6931 17.1903 24.3539 17.3307 24.0003 17.3307Z' fill='%23252B4A'/%3E%3Cpath d='M14.6663 24.0003L14.6663 8.00033C14.6663 7.6467 14.8068 7.30757 15.0569 7.05752C15.3069 6.80747 15.6461 6.66699 15.9997 6.66699C16.3533 6.66699 16.6924 6.80747 16.9425 7.05752C17.1925 7.30757 17.333 7.6467 17.333 8.00033L17.333 24.0003C17.333 24.3539 17.1925 24.6931 16.9425 24.9431C16.6924 25.1932 16.3533 25.3337 15.9997 25.3337C15.6461 25.3337 15.3069 25.1932 15.0569 24.9431C14.8068 24.6931 14.6663 24.3539 14.6663 24.0003Z' fill='black'/%3E%3C/svg%3E");
+                repeat: no-repeat;
+            };
+            content: '';
+            transform: translateY(-50%);
+        }
+
+        .is-open & {
+            color: var(--color-primary-d);
+            padding-bottom: 12px;
+
+            &::before {
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M4 12H20' stroke='%232D1600' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+                top: 50%;
+                transform: translateY(-50%) scale(1, -1);
+            }
+        }
+    }
+
+    &__answer {
+        @include font(var(--typo-2), 15px, var(--fw-normal));
+        @include trs();
+        color: var(--color-dark-blue);
+        max-height: 0;
+        opacity: 0;
+
+        .is-open & {
+            opacity: 1;
+            overflow: visible;
+        }
+    }
+
+    &__answer-inner {
+        padding: 0 30px 24px 0;
+    }
+}

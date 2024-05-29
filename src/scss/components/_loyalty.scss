@@ -1,0 +1,81 @@
+.loyalty {
+    $this: &;
+
+    .title {
+        margin: 0 auto 40px;
+        max-width: 730px;
+
+        @include tablet {
+            max-width: 570px;
+        }
+    }
+
+    &__wrapper {
+        display: grid;
+        gap: 0 200px;
+        grid-template-columns: repeat(3, 360px);
+
+        @include desktop {
+            gap: 0 20px;
+        }
+
+        @include tablet {
+            grid-template-columns: repeat(3, minmax(215px, 360px));
+        }
+
+        @include mobile {
+            gap: 40px 0;
+            grid-template-columns: auto;
+        }
+    }
+
+    &__item {
+        @include flex-all-center;
+        flex-direction: column;
+        gap: 8px 0;
+
+        @include tablet {
+            gap: 20px 0;
+        }
+
+        &:first-child {
+            #{$this}__title {
+                color: var(--color-rating);
+            }
+        }
+
+        &:nth-child(2) {
+            #{$this}__title {
+                color: var(--color-blue);
+            }
+        }
+
+        &:last-child {
+            #{$this}__title {
+                color: var(--color-green);
+            }
+        }
+    }
+
+    &__content {
+        text-align: center;
+    }
+
+    &__title {
+        @include font(var(--typo-1), 56px, var(--fw-bold));
+        line-height: 140%;
+
+        @include tablet {
+            font-size: 48px;
+        }
+    }
+
+    &__paragraph {
+        color: var(--color-dark-gray);
+
+        .is-bold {
+            color: var(--color-dark-blue);
+            font-weight: var(--fw-bold);
+        }
+    }
+}

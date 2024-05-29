@@ -1,0 +1,142 @@
+.vet {
+    overflow: hidden;
+
+    @include tablet {
+        overflow: visible;
+    }
+
+    .title {
+        margin: 0 auto 60px;
+        max-width: 730px;
+
+        @include desktop {
+            margin-bottom: 40px;
+        }
+    }
+
+    &__wrapper {
+        display: grid;
+        gap: 0 145px;
+        grid-template-columns: 480px 1fr;
+
+        @include desktop {
+            gap: 0 115px;
+            grid-template-columns: 455px 1fr;
+        }
+
+        @include tablet {
+            gap: 0 20px;
+            grid-template-columns: repeat(2, 335px);
+            justify-content: center;
+        }
+
+        @include mobile {
+            gap: 25px 0;
+            grid-template-columns: auto;
+        }
+    }
+
+    &__image {
+        @include mobile {
+            max-width: 360px;
+        }
+    }
+
+    &__slider {
+        position: relative;
+
+        @include sm-mobile {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    &__slider-container {
+        display: flex;
+        margin-top: 105px;
+        position: relative;
+        width: 480px;
+
+        @include tablet {
+            margin-top: 35px;
+            overflow-x: hidden;
+            width: 355px;
+        }
+
+        @include sm-mobile {
+            width: 320px;
+        }
+    }
+
+    &__slider-item {
+        padding-right: 20px;
+        width: 480px !important;
+
+        @include tablet {
+            padding: 0;
+            width: 355px !important;
+        }
+
+        @include sm-mobile {
+            width: 320px !important;
+        }
+
+        @include mobile {
+            text-align: center;
+        }
+    }
+
+    &__category {
+        @include font(var(--typo-2), 17px, var(--fw-bold));
+        color: var(--color-secondary-d);
+        margin-bottom: 20px;
+    }
+
+    &__title {
+        margin-bottom: 12px;
+    }
+
+    &__swiper-pagination {
+        bottom: 105px !important;
+        display: flex;
+        gap: 0 20px;
+
+        @include tablet {
+            bottom: 20px !important;
+        }
+
+        @include mobile {
+            bottom: -50px !important;
+            justify-content: center;
+        }
+    }
+
+    .swiper-pagination-bullet {
+        @include size(14px);
+        background-color: var(--color-primary-bg);
+        border-radius: 50%;
+        margin: 0 !important;
+        opacity: 1;
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: var(--color-primary-d);
+        opacity: 1;
+    }
+
+    .swiper-slide,
+    .swiper-slide-prev {
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .swiper-slide-active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .swiper-slide-next {
+        opacity: 0.5;
+        visibility: visible;
+    }
+}

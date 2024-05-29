@@ -1,0 +1,124 @@
+.no-ai {
+    $this: &;
+
+    &.is-second {
+        #{$this}__wrapper {
+            align-items: center;
+            grid-template-columns: 480px 360px 480px;
+
+            @include desktop {
+                grid-template-columns: repeat(3, 360px);
+            }
+
+            @include tablet {
+                align-items: flex-start;
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @include mobile {
+                grid-template-columns: auto;
+            }
+        }
+    }
+
+    &__wrapper {
+        display: grid;
+        gap: 0 50px;
+        grid-template-columns: 420px 480px 420px;
+        justify-content: center;
+
+        @include desktop {
+            align-items: center;
+            gap: 0 20px;
+            grid-template-columns: repeat(3, 360px);
+        }
+
+        @include tablet {
+            align-items: flex-start;
+            grid-template-columns: repeat(2, 1fr);
+            position: relative;
+            padding-top: 320px;
+        }
+
+        @include mobile {
+            gap: 20px 0;
+            grid-template-columns: auto;
+            padding-top: 310px;
+        }
+    }
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: 60px 0;
+
+        @include tablet {
+            gap: 20px 0;
+        }
+
+        &:nth-child(2) {
+            @include tablet {
+                @include absolute(0, null, null, 50%);
+                transform: translateX(-50%);
+            }
+        }
+    }
+
+    &__content {
+        background-color: var(--color-secondary-bg);
+        border-radius: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px 0;
+        padding: 30px;
+    }
+
+    &__group {
+        align-items: flex-start;
+        display: flex;
+    }
+
+    &__icon {
+        @include size(24px);
+        align-items: center;
+        display: inline-flex;
+        justify-content: center;
+        margin: 3px 8px 0 0;
+        position: relative;
+
+        &::before {
+            @include absolute(0, 0);
+            @include size(24px);
+            background: {
+                image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M10.74 16.14L17.085 9.795L15.825 8.535L10.74 13.62L8.175 11.055L6.915 12.315L10.74 16.14ZM12 21C10.755 21 9.585 20.7636 8.49 20.2908C7.395 19.818 6.4425 19.1769 5.6325 18.3675C4.8225 17.5575 4.1814 16.605 3.7092 15.51C3.237 14.415 3.0006 13.245 3 12C3 10.755 3.2364 9.585 3.7092 8.49C4.182 7.395 4.8231 6.4425 5.6325 5.6325C6.4425 4.8225 7.395 4.1814 8.49 3.7092C9.585 3.237 10.755 3.0006 12 3C13.245 3 14.415 3.2364 15.51 3.7092C16.605 4.182 17.5575 4.8231 18.3675 5.6325C19.1775 6.4425 19.8189 7.395 20.2917 8.49C20.7645 9.585 21.0006 10.755 21 12C21 13.245 20.7636 14.415 20.2908 15.51C19.818 16.605 19.1769 17.5575 18.3675 18.3675C17.5575 19.1775 16.605 19.8189 15.51 20.2917C14.415 20.7645 13.245 21.0006 12 21Z' fill='%234F56B2'/%3E%3C/svg%3E");
+                repeat: no-repeat;
+            };
+            content: '';
+        }
+    }
+
+    &__picture {
+        @include tablet {
+            @include size(334px, 276px)
+        }
+
+        @include mobile {
+            @include size(320px, 264px);
+        }
+    }
+
+    &__button {
+        @include flex-all-center;
+        margin-top: 60px;
+
+        @include desktop {
+            margin-top: 40px;
+        }
+
+        @include sm-mobile {
+            .btn {
+                width: 100%;
+            }
+        }
+    }
+}

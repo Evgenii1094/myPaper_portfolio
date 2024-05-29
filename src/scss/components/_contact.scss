@@ -1,0 +1,121 @@
+.contact {
+    @include tablet {
+        margin-top: 40px;
+    }
+
+    .title {
+        text-align: left;
+
+        @include tablet {
+            text-align: center;
+        }
+    }
+
+    &__wrapper {
+        display: grid;
+        gap: 0 145px;
+        grid-template-columns: 855px 480px;
+
+        @media (max-width: (1599px)) {
+            align-items: flex-end;
+            gap: 0 40px;
+            grid-template-columns: 730px 360px;
+            justify-content: center;
+        }
+
+        @include tablet {
+            grid-template-columns: auto;
+        }
+    }
+
+    &__content {
+        padding-top: 80px;
+
+        @media (max-width: (1599px)) {
+            padding-top: 60px;
+        }
+
+        @include tablet {
+            padding: 0;
+        }
+    }
+
+    &__image {
+        padding-top: 50px;
+
+        @media (max-width: (1599px)) {
+            padding: 0;
+        }
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__item {
+        @include flex-v-center;
+        gap: 0 20px;
+    }
+
+    &__icon {
+        @include flex-all-center;
+        @include size(42px);
+        background-color: var(--color-secondary-bg);
+        border-radius: 10px;
+        flex-shrink: 0;
+    }
+
+    &__group {
+        display: grid;
+        gap: 0 20px;
+        grid-template-columns: 355px 480px;
+
+        @media (max-width: (1599px)) {
+            grid-template-columns: 313px 389px;
+        }
+
+        @include tablet {
+            grid-template-columns: repeat(2, 334px);
+        }
+
+        @include mobile {
+            gap: 24px 0;
+            grid-template-columns: auto;
+            justify-content: center;
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 40px 0;
+
+        @include tablet {
+            gap: 24px 0;
+        }
+    }
+
+    &__paragraph {
+        margin-bottom: 8px;
+
+        @include tablet {
+            font-size: 15px;
+        }
+    }
+
+    &__link,
+    &__days {
+        @include font(var(--typo-1), 21px, var(--fw-bold));
+        color: var(--color-primary-d);
+
+        @include tablet {
+            font-size: 17px;
+        }
+    }
+
+    &__link {
+        @include on-event {
+            text-decoration: underline;
+        }
+    }
+}

@@ -1,0 +1,111 @@
+.btn {
+    @include font(var(--typo-2), 15px, var(--fw-bold));
+    @include trs;
+    align-items: center;
+    background-color: var(--color-primary-d);
+    border: 2px solid var(--color-primary-d);
+    border-radius: 10px;
+    color: $color-white;
+    display: inline-flex;
+    justify-content: center;
+    padding: 11px 23px;
+    position: relative;
+    text-decoration: none;
+    text-transform: capitalize;
+
+    svg {
+        path {
+            @include trs();
+        }
+    }
+
+    @include on-event {
+        @include trs();
+        background-color: var(--color-primary-h);
+        border-color: var(--color-primary-h);
+    }
+
+    &.is-transparent {
+        background-color: inherit;
+        border: 2px solid var(--color-primary-d);
+        color: var(--color-primary-d);
+
+        @include on-event {
+            background-color: var(--color-primary-h);
+            border-color: var(--color-primary-h);
+            color: $color-white;
+
+            svg {
+                path {
+                    fill: var(--color-primary-h);
+                }
+            }
+        }
+
+        &.is-disabled {
+            background-color: $color-white;
+            color: var(--color-gray);
+
+            svg {
+                path {
+                    fill: var(--color-gray);
+                }
+            }
+        }
+    }
+
+    &.is-disabled {
+        background-color: var(--color-gray);
+        border-color: var(--color-gray);
+        pointer-events: none;
+
+        svg {
+            path {
+                fill: var(--color-gray);
+            }
+        }
+    }
+
+    &.is-only-text {
+        background-color: transparent;
+        border: none;
+        color: var(--color-primary-d);
+        padding: 0 16px;
+
+        @include on-event {
+            color: var(--color-primary-h);
+
+            svg {
+                path {
+                    fill: var(--color-primary-h);
+                }
+            }
+        }
+
+        &.is-disabled {
+            background-color: $color-white;
+            color: var(--color-gray);
+
+            svg {
+                path {
+                    fill: var(--color-gray);
+                }
+            }
+        }
+    }
+
+    &.is-large {
+        border-radius: 12px;
+        font-size: 17px;
+        padding: 18px 40px;
+    }
+
+    &__icon {
+        @include flex-v-center;
+        margin-right: 8px;
+
+        &.is-right {
+            margin: 0 0 0 8px;
+        }
+    }
+}

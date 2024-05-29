@@ -1,0 +1,135 @@
+.industry {
+    @include tablet {
+        margin-bottom: 170px;
+    }
+    
+    .container {
+        @media (max-width: (1599px)) {
+            max-width: 1120px;
+        }
+    }
+
+    &__slider {
+        position: relative;
+    }
+
+    &__slider-container {
+        position: relative;
+        display: flex;
+        overflow-x: hidden;
+        margin: 0 auto;
+        width: 1480px;
+        gap: 0 20px;
+
+        @media (max-width: (1599px)) {
+            width: 1120px;
+        }
+
+        @include tablet {
+            width: 688px;
+        }
+
+        @include mobile {
+            width: 320px;
+        }
+    }
+
+    &__slider-item {
+        @include flex-all-center;
+
+        flex-direction: column;
+        border: 1px solid var(--color-gray);
+        border-radius: 12px;
+        padding: 30px;
+        min-height: 240px;
+        text-align: center;
+        gap: 24px 0;
+
+        @include tablet {
+            min-height: 270px;
+        }
+    }
+
+    &__group {
+        @include flex-v-center;
+
+        gap: 0 6px;
+    }
+
+    &__icon {
+        @include flex-v-center;
+    }
+
+    &__link {
+        @include font(var(--typo-2), 15px, var(--fw-bold));
+        @include trs;
+
+        color: var(--color-secondary-d);
+
+        @include on-event {
+            text-decoration: underline;
+        }
+    }
+
+    &__button-next {
+        right: -55px;
+    }
+
+    &__button-prev {
+        left: -55px;
+    }
+
+    &__swiper-pagination {
+        display: none;
+
+        @include tablet {
+            bottom: -50px !important;
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .swiper-pagination-bullet {
+        @include size(14px);
+
+        margin: 0 10px !important;
+        border-radius: 50%;
+        background-color: var(--color-primary-bg);
+        opacity: 1;
+        
+        @include mobile {
+            @include size (12px);
+        }
+    }
+
+    .swiper-pagination-bullet-active {
+        background-color: var(--color-primary-d);
+        opacity: 1;
+    }
+
+    &__button-next,
+    &__button-prev {
+        @include trs;
+        @include size(40px);
+
+        border-radius: 50%;
+
+        &::after {
+            content: none;
+        }
+
+        @include tablet {
+            display: none;
+        }
+
+        @include on-event {
+            background-color: var(--color-primary-h);
+
+            svg {
+                path {
+                    fill: $color-white;
+                }
+            }
+        }
+    }
+}
